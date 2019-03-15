@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '_@zze1ap1w4(=3d-rcfy86o@r4&7h_pli4sw6f&=4p6fee9ste'
+NASA_API_KEY = 'M82x67BWrrDLrgemD4CkC2uwOlECXGNKSdgoYMnC'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
