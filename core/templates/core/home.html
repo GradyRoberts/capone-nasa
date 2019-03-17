@@ -1,4 +1,10 @@
-<h2>NASA Astronomy Image of the Day</h2>
-<h3>{{ title }}</h3>
-<img src={{ url }} alt=":(">
-<p>{{ explanation }}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="text-align: center">NASA Astronomy Picture of the Day</h2>
+<h3 style="text-align: center">{{ title }}</h3>
+<img src={{ url }} alt="..." class="rounded mx-auto d-block">
+<div class="mx-auto" style="width: 50%">
+    <p style="text-align: justify">{{ explanation }}</p>
+</div>
+{% endblock %}
