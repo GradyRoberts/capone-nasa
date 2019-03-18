@@ -25,9 +25,9 @@ SECRET_KEY = '_@zze1ap1w4(=3d-rcfy86o@r4&7h_pli4sw6f&=4p6fee9ste'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'nasa-img.herokuapp.com']
 
 
 # Application definition
