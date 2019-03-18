@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
 
 {% block content %}
-<h2 style="text-align: center">NASA Astronomy Picture of the Day</h2>
-<h3 style="text-align: center">{{ title }}</h3>
-<img src={{ url }} alt="..." class="rounded mx-auto d-block">
+<div style="text-align: center">
+    <h2 style="text-align: center"><strong>NASA Astronomy Picture of the Day</strong></h2>
+    <h3 style="text-align: center">{{ title }}</h3>
+    <img src={{ url }} alt="..." class="rounded mx-auto d-block">
+</div>
 <div class="mx-auto" style="width: 50%">
     <p style="text-align: justify">{{ explanation }}</p>
 </div>
