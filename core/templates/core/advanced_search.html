@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% block content %}
+<div class="mx-auto" style="text-align: center">
+    <h2><strong>Advanced Search</strong></h2>
+    <p>All fields are optional.</p>
+</div>
+<form class="my-2 my-lg-0" style="padding-left: 15px" action="/advanced-search/results/" method="GET">
+    {% bootstrap_form form %}
+    <input class="btn btn-outline-dark my-2 my-sm-0" type="submit" value="Search Images">
+</form>
+{% endblock %}
