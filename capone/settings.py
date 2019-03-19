@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 from decouple import config
 import os
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,12 +83,12 @@ WSGI_APPLICATION = 'capone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+# }
 
 
 # Password validation
@@ -130,3 +132,10 @@ STATIC_URL = '/static/'
 
 # Use python-decouple to keep production settings and keys secret
 NASA_API_KEY = config('NASA_API_KEY', default='DEMO_KEY')
+
+# Activate Django-Heroku
+django_heroku.settings(locals())
+
+# Setup heroku postgres
+DATABASES['default'] = dj_database_url.config(
+    conn_max_age=600, ssl_require=True)
