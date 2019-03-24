@@ -1,5 +1,57 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
 
 {% block content %}
-<p>{{ hits }} hits!</p>
+<div class="mx-auto" style="width:400px">
+    <form class="form-inline my-2 my-lg-0" action="/results/" method="GET">
+        {% bootstrap_form form %}
+        <input class="btn btn-outline-dark my-2 my-sm-0" style="margin-left: 5px;" type="submit" value="Search">
+    </form>
+</div>
+{% if hits != 0 %}
+<div class="mx-auto" style="text-align: center; width: 400px;">
+    <p>
+        Displaying {{ lower }}-{{ upper }} of <strong>{{ hits }}</strong> results!<br>
+
+        {% if num_pages > 1 %}
+        Page {{ page }} of {{ num_pages }}<br>
+        {% endif %}
+
+        {% if lower != 1 %}
+        <a href="?{{ query }}&results_page={{ prev_page }}">Prev</a>
+        {% endif %}
+        {% if upper != hits %}
+        <a href="?{{ query }}&results_page={{ next_page }}">Next</a>
+        {% endif %}
+    </p>
+</div>
+<div class="mx-auto" style="width: 100%; text-align: center;">
+    {% for item in items %}
+    <div style="width: 20rem; display:inline-block; margin-right: 1rem; margin-top: 3rem;">
+        <a href="detail/?{{ " class="custom-card">
+            <div class="card" style="width: 100%; padding-bottom: 1rem;">
+                <img src={{ item.links.0.href }} class=" card-img-top" alt="...">
+            <div class="card-body" style="overflow: hidden; white-space: normal; height: 15vh;">
+                <h5 class="card-title" style="text-overflow: clip">{{ item.data.0.title }}</h5>
+                <p class="card-text text-muted" style="font-size: 10pt; text-overflow: clip">
+                    {{ item.data.0.keywords|join:", " }}</p>
+            </div>
+    </div>
+    </a>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="mx-auto" style="margin-top: 20px; width:400px; text-align: center;">
+    <h2>No results found :(</h2>
+</div>
+{% endif %}
 {% endblock %}
+
+{% comment %}
+<!--
+    potentially use this to allow user to sort results
+    {% regroup cities|dictsort:"country" by country as country_list %}
+-->
+{% endcomment %}

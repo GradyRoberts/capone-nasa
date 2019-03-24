@@ -3,12 +3,13 @@
 {% bootstrap_css %}
 
 {% block content %}
-<div style="text-align: center">
-    <h2 style="text-align: center"><strong>NASA Astronomy Picture of the Day</strong></h2>
-    <h3 style="text-align: center">{{ title }}</h3>
-    <img src={{ url }} alt="..." class="rounded mx-auto d-block">
+<div class="mx-auto" style="width: 600px;">
+    <h2><strong>Search the NASA Image Database!</strong></h2>
 </div>
-<div class="mx-auto" style="width: 50%">
-    <p style="text-align: justify">{{ explanation }}</p>
+<div class="mx-auto" style="width:400px">
+    <form class="form-inline my-2 my-lg-0" action="/results/" method="GET">
+        {% bootstrap_form form %}
+        <input class="btn btn-outline-dark my-2 my-sm-0" style="margin-left: 5px;" type="submit" value="Search">
+    </form>
 </div>
 {% endblock %}

@@ -7,7 +7,7 @@ class BasicSearchForm(forms.Form):
     NASA image search API's free text
     search parameter, q.
     """
-    query = forms.CharField(label='', max_length=200, required=False)
+    q = forms.CharField(label='', max_length=200, required=False)
 
 
 class AdvancedSearchForm(forms.Form):

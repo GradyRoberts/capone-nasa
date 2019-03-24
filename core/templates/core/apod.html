@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+
+{% block content %}
+<div style="text-align: center">
+    <h2 style="text-align: center"><strong>NASA Astronomy Picture of the Day</strong></h2>
+    <h3 style="text-align: center">{{ title }}</h3>
+    {% if media_type == 'image' %}
+    <img src={{ url }} alt="..." class="rounded mx-auto d-block">
+    {% else %}
+    <iframe src={{ url }} allow="autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""
+        width="960" height="540" frameborder="0"></iframe>
+    {% endif %}
+</div>
+<div class="mx-auto" style="width: 50%">
+    <p style="text-align: justify">{{ explanation }}</p>
+</div>
+{% endblock %}

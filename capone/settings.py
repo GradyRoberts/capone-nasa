@@ -27,7 +27,7 @@ SECRET_KEY = '_@zze1ap1w4(=3d-rcfy86o@r4&7h_pli4sw6f&=4p6fee9ste'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'nasa-img.herokuapp.com']
 
@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'capone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+### Comment this out for production ###
 # DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
@@ -136,6 +137,6 @@ NASA_API_KEY = config('NASA_API_KEY', default='DEMO_KEY')
 # Activate Django-Heroku
 django_heroku.settings(locals())
 
-# Setup heroku postgres
+# Setup heroku postgres - Comment this out for local dev
 DATABASES['default'] = dj_database_url.config(
     conn_max_age=600, ssl_require=True)
