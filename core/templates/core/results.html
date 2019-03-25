@@ -29,18 +29,18 @@
 <div class="mx-auto" style="width: 100%; text-align: center;">
     {% for item in items %}
     <div style="width: 20rem; display:inline-block; margin-right: 1rem; margin-top: 3rem;">
-        <a href="detail/?{{ " class="custom-card">
+        <a href="detail/?nasa_id={{ item.data.0.nasa_id }}" class="custom-card">
             <div class="card" style="width: 100%; padding-bottom: 1rem;">
-                <img src={{ item.links.0.href }} class=" card-img-top" alt="...">
-            <div class="card-body" style="overflow: hidden; white-space: normal; height: 15vh;">
-                <h5 class="card-title" style="text-overflow: clip">{{ item.data.0.title }}</h5>
-                <p class="card-text text-muted" style="font-size: 10pt; text-overflow: clip">
-                    {{ item.data.0.keywords|join:", " }}</p>
+                <img src={{ item.links.0.href }} class="card-img-top" alt="...">
+                <div class="card-body" style="overflow: hidden; white-space: normal; height: 15vh;">
+                    <h5 class="card-title" style="text-overflow: clip">{{ item.data.0.title }}</h5>
+                    <p class="card-text text-muted" style="font-size: 10pt; text-overflow: clip">
+                        {{ item.data.0.keywords|join:", " }}</p>
+                </div>
             </div>
+        </a>
     </div>
-    </a>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% else %}
 <div class="mx-auto" style="margin-top: 20px; width:400px; text-align: center;">

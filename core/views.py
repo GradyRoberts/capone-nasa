@@ -163,5 +163,17 @@ def detail(request):
     Show the image in full size along with its
     metadata.
     """
-    if request.method == 'GET':
-        pass
+    nasa_id = request.GET.get('nasa_id')
+    response = requests.get(
+        'https://images-api.nasa.gov/search?nasa_id=' + nasa_id)
+
+    # Make sure the request is valid
+    if response.status_code == 200:
+        response = response.json()
+        item = response['collection']['items'][0]
+        url = response['collection']['items'][0]['links'][0]['href']
+        large_url = url.replace('~thumb', '~large')
+        return render(request, 'core/detail.html', {
+            'item': item,
+            'url': large_url
+        })

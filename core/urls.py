@@ -10,5 +10,5 @@ urlpatterns = [
     path('advanced-search/results/',
          views.advanced_results, name='advanced_results'),
     path('results/', views.results, name='results'),
-    path('detail/', views.detail, name='detail'),
+    path('results/detail/', views.detail, name='detail'),
 ]

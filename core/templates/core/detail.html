@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--navbar from https://www.w3schools.com/howto/howto_js_curtain_menu.asp-->
+<div id="myNav" class="overlay">
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+        <h1>{{ item.data.0.title }}</h1>
+        <p class="text-muted" style="font-size: 10pt;">{{ item.data.0.keywords|join:", " }}</p>
+        <div class="mx-auto" style="width: 50%;">
+            <p style="text-align: justify">{{ item.data.0.description }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto" style="width: 150px; margin-top: 30px; margin-bottom: 20px;">
+    <button class="btn btn-dark" style="width:150px;" onclick="openNav()">Show Details</button>
+</div>
+
+<div>
+    <img src={{ url }} alt="..." style="width: 100vw; height: 100vh; object-fit: contain;">
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    } 
+</script>
+{% endblock %}

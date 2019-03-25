@@ -3,10 +3,14 @@
 {% bootstrap_css %}
 
 {% block content %}
-<div class="mx-auto" style="width: 600px;">
+<div class="mx-auto" style="width: 470px; height: 576px;">
+    <img src="https://images-assets.nasa.gov/image/NASA_60TH_FULLCOLOR_V2_BLKGRD_300DPI/NASA_60TH_FULLCOLOR_V2_BLKGRD_300DPI~large.jpg"
+        style="width: 470px; height: 576px; object-fit: fill;">
+</div>
+<div class="mx-auto" style="width: 600px; text-align: center;">
     <h2><strong>Search the NASA Image Database!</strong></h2>
 </div>
-<div class="mx-auto" style="width:400px">
+<div class="mx-auto" style="width:380px;">
     <form class="form-inline my-2 my-lg-0" action="/results/" method="GET">
         {% bootstrap_form form %}
         <input class="btn btn-outline-dark my-2 my-sm-0" style="margin-left: 5px;" type="submit" value="Search">
